@@ -1,10 +1,10 @@
 //initialize variables and values needed
 
-let goalValue = Math.floor(Math.random() * (120 - 19 + 1) ) + 19;
-let crystal1Value = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;
-let crystal2Value = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;
-let crystal3Value = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;
-let crystal4Value = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;
+let goalValue = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+let crystal1Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+let crystal2Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+let crystal3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+let crystal4Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 
 
 let liveScore = 0;
@@ -13,43 +13,36 @@ let losses = 0;
 
 //this function runs once the user is ready to start the game
 
-function startGame(){
+function startGame() {
 
 
-    console.log("game started");
-    console.log(goalValue);
-    console.log(crystal1Value);
-    console.log(crystal2Value);
-    console.log(crystal3Value);
-    console.log(crystal4Value);
+    //inform user that the game has started
+    document.getElementById("allCrystals").innerHTML = "GAME STARTED. Good Luck!";
 
-        //display inital goal value to viewport
+    //display inital goal value to viewport
 
-    document.getElementById("yourNumber").innerHTML = "<strong>"+ goalValue + "</strong>";
+    document.getElementById("yourNumber").innerHTML = goalValue;
 
     //listen for click on each of the four crystals then update the accumulated value with the value of the most recent click then update scoreboard
 
     document.getElementById("crystal1").addEventListener("click", function () {
         //update livescore when crystal 1 is clicked
         liveScore = liveScore + crystal1Value;
-        console.log("Crystal1 Clicked, Value: " + crystal1Value);
-        
+
         updateScoreboard();
     });
 
     document.getElementById("crystal2").addEventListener("click", function () {
         //update livescore when crystal 2 is clicked
         liveScore = liveScore + crystal2Value;
-        console.log("Crystal2 Clicked, Value: " + crystal2Value);
         updateScoreboard();
 
-       
+
     });
 
     document.getElementById("crystal3").addEventListener("click", function () {
         //update livescore when crystal 3 is clicked
         liveScore = liveScore + crystal3Value;
-        console.log("Crystal3 Clicked, Value: " + crystal3Value);
         updateScoreboard();
 
     });
@@ -57,7 +50,6 @@ function startGame(){
     document.getElementById("crystal4").addEventListener("click", function () {
         //update livescore when crystal 4 is clicked
         liveScore = liveScore + crystal4Value;
-        console.log("Crystal4 Clicked, Value: " + crystal4Value);
         updateScoreboard();
     });
 
@@ -66,12 +58,12 @@ function startGame(){
 //this function runs after each user click
 
 function updateScoreboard() {
-    console.log("Goal Value: " + goalValue);
-    console.log("Live Score: " + liveScore);
+
+
 
     if (liveScore === goalValue) {
         wins++;
-        console.log("Wins: " + wins);
+
         //reset random numbers to play again
         goalValue = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
         crystal1Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
@@ -84,12 +76,12 @@ function updateScoreboard() {
         document.getElementById("yourNumber").innerHTML = goalValue;
 
         //display updated wins & losses to viewport
-        document.getElementById("scoreBoard").innerHTML = "<strong>Wins: "+ wins + "<br/>Losses: " + losses + "</strong>";
+        document.getElementById("scoreBoard").innerHTML = "Wins: " + wins + "<br/>Losses: " + losses;
 
     }
     if (liveScore > goalValue) {
         losses++;
-        console.log("Losses: " + losses);
+
         //reset random numbers to play again
         goalValue = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
         crystal1Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
@@ -102,7 +94,7 @@ function updateScoreboard() {
         document.getElementById("yourNumber").innerHTML = goalValue;
 
         //display updated wins & losses to viewport
-        document.getElementById("scoreBoard").innerHTML = "<strong>Wins: " + wins + "<br/>Losses: " + losses + "</strong>";
+        document.getElementById("scoreBoard").innerHTML = "Wins: " + wins + "<br/>Losses: " + losses;
     }
 
     document.getElementById("liveScore").innerHTML = liveScore;
