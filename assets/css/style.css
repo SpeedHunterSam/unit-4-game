@@ -6,15 +6,28 @@ body {
 
 h1 {
     font-size: 40px;
+    padding: 10px;
 }
 
 h3 {
     font-size: 28px;
+    padding: 10px;
 }
 
-p {
+.liveNumbers {
 
-    font-size: 16px;
+    font-size: 23px;
     padding: 10px;
 
+}
+
+.StartGameText {
+
+    font-size: 23px;
+    color: red;
+    padding: 10px;
+}
+
+.instructions{
+    padding: 10px;
 }
